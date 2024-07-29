@@ -4,8 +4,8 @@ const Stat = require("../../models/stat")
 module.exports = {
   indexStats,
   addStat,
-  removeStat
-
+  removeStat,
+  wakeUp
 };
 
 // router.post('/stats', statCtrl.updateStats)
@@ -68,6 +68,19 @@ async function indexStats(req,res){
     const stats = await Stat.findOne({"_id": "65ce67076d2f7f56c1057959"})
     res.status(200).json(stats);    
   } catch (error) {    
+    res.status(400).json({ msg: error.message }); 
+  }
+}
+
+
+// Getting earlier created input to send fake request from back end to DB to wake up both
+async function wakeUp(req, res){
+  try {
+    const responce = await Stat.findOne({"_id":"66a69c566c7fbba83cef44cb"})
+    res.status(200).json(responce); 
+    console.log(responce.responce)
+    
+  } catch (error) {
     res.status(400).json({ msg: error.message }); 
   }
 }
