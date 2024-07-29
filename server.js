@@ -22,7 +22,7 @@ const app = express();
 
 app.use(bodyParser.json({ limit: '100mb', extended: true }))   //setting the limin for uploading images no more than 10 mb
 app.use(bodyParser.urlencoded({ limin: "10mb", extended: true}))
-// app.use(cors())
+app.use(cors(corsOptions))
 
 // app.use(logger('dev'));
 app.use(express.json());
