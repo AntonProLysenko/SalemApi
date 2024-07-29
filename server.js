@@ -2,6 +2,13 @@ const express = require('express');
 const path = require('path');
 const bodyParser= require ("body-parser");//alow to enable to sen POST req
 
+const cors=require("cors");//cors is a cross origin resource sharing  alows to use back end with a different url from front-end
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200,
+}
+
 
 // const favicon = require('serve-favicon');
 // const logger = require('morgan');
